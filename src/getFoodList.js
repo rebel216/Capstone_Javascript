@@ -4,7 +4,21 @@ const UIData = (arr) => {
 
   arr.forEach((food) => {
     const item = document.createElement('div');
-    item.innerHTML = `<img src="${food.strMealThumb}" width="200px"><h6>${food.strMeal}</h6>`;
+    item.classList.add('card-food');
+    item.innerHTML = `
+        <div class="card-title">
+          <h5>${food.strMeal}</h5>
+        </div>
+        <div class="btn-recipe">
+          <button type="button">Recipe</button>
+        </div>
+        <div class="btn-liked">
+          <button type="button">Like</button>
+        </div>
+        <div class="card-img">
+         <img src="${food.strMealThumb}" class="img-food">        
+        </div>     
+    `;
     item.id = food.idMeal;
     board.appendChild(item);
   });
