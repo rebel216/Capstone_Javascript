@@ -3,8 +3,8 @@ import popupData from './popup.js';
 import { urlDetails } from './index.js';
 
 const getPopupData = async (arr) => {
-  const url = urlDetails + arr.idMeal;
-  const request = new Request(url);
+  const urlD = urlDetails + arr.idMeal;
+  const request = new Request(urlD);
   const response = await fetch(request);
   const responseJson = await response.json();
   const responsInfo = responseJson.meals;// getting food data list
@@ -34,7 +34,7 @@ const UIData = (arr) => {
     `;
     item.id = food.idMeal;
     board.appendChild(item);
-    document.querySelector('btn-recipe').addEventListener('click', () => {
+    item.addEventListener('click', () => {
       getPopupData(food);
     });
   });
@@ -46,7 +46,6 @@ const getData = async (url) => {
   const response = await fetch(request);
   const responseJson = await response.json();
   const responsInfo = responseJson.meals;// getting food data list
-
   UIData(responsInfo); // passing that response to display the data.
 };
 
