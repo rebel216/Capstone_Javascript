@@ -1,8 +1,10 @@
-// import popupData from './popup.js';
+import popupData from './popup.js';
+// eslint-disable-next-line import/no-cycle
+import { urlDetails } from './index.js';
 
 const getPopupData = async (arr) => {
-  const urlDetails = 'www.themealdb.com/api/json/v1/1/lookup.php?i=' + arr.idMeal;
-  const request = new Request(urlDetails);
+  const url = urlDetails + arr.idMeal;
+  const request = new Request(url);
   const response = await fetch(request);
   const responseJson = await response.json();
   const responsInfo = responseJson.meals;// getting food data list
