@@ -2,6 +2,13 @@ import { InvolveURL } from './index.js';
 import { postcomments } from './Likes&Comments.js';
 
 const fillComments = (obj) => {
+  const commentsCounter = document.createElement('h6');
+  if (obj.length !== undefined) {
+    const postfix = ' Comments';
+    commentsCounter.textContent = obj.length + postfix;
+    const popup = document.querySelector('.popup');
+    popup.appendChild(commentsCounter);
+  }
   for (let i = 0; i < obj.length; i += 1) {
     const comment = document.createElement('div');
     comment.classList = 'comment';
