@@ -1,8 +1,10 @@
+/* eslint-disable quote-props */
+/* eslint-disable quotes */
 // eslint-disable-next-line import/no-cycle
+import { InvolveURL } from './index.js';
+
 const projectID = 'oHdQExR6DIJGa8S6fY1E';
 const likesLink = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${projectID}/likes/`;
-
-import { InvolveURL } from './index.js';
 
 export const getlikes = async () => {
   const response = await fetch(likesLink);
@@ -41,8 +43,4 @@ export const postcomments = async (id, username, comment) => {
   });
 };
 
-export default { postlikes, getlikes,postcomments};
-
-
-
-
+export default { postlikes, getlikes, postcomments };
