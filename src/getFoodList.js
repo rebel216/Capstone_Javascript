@@ -1,6 +1,7 @@
+/* eslint-disable import/no-cycle */
 import popupData from './popup.js';
-// eslint-disable-next-line import/no-cycle
 import { urlDetails } from './index.js';
+import postlikes from './Likes&Comments.js';
 
 const getPopupData = async (arr) => {
   const urlD = urlDetails + arr.idMeal;
@@ -34,9 +35,25 @@ const UIData = (arr) => {
     `;
     item.id = food.idMeal;
     board.appendChild(item);
+
+    // this section is not working----->
+    document.querySelector('.btn-liked').addEventListener('click', () => {
+      postlikes(item.id);
+    });
+    document.querySelector('.btn-recipe').addEventListener('click', () => {
+      getPopupData(food);
+    });
+    //  <-------------------------------
+
+    //  This way works but for the entire item not just the button
+    // item.addEventListener('click', () => {
+    //   postlikes(item.id);
+    // });
+
     item.addEventListener('click', () => {
       getPopupData(food);
     });
+    //  <-------------------------------
   });
 };
 
