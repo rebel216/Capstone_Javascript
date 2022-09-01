@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import popupData from './popup.js';
 import { urlDetails } from './index.js';
-import postlikes from './Likes&Comments.js';
+import { postlikes, getlikes } from './Likes&Comments.js';
 
 const getPopupData = async (arr) => {
   const urlD = urlDetails + arr.idMeal;
@@ -33,16 +33,40 @@ const UIData = (arr) => {
          <img src="${food.strMealThumb}" class="img-food">        
         </div>     
     `;
-    item.id = food.idMeal;
+    const btnrecipe = item.querySelector('.btn-recipe');
+    const btnlike = item.querySelector('.btn-liked');
+    const printLike = (data) => {
+      const likesReturned = data.find(
+        // eslint-disable-next-line comma-dangle
+        (element) => element.item_id === food.idMeal
+      );
+      // eslint-disable-next-line operator-linebreak
+      btnlike.innerHTML =
+        likesReturned !== undefined
+          ? `<i class="fas fa-heart"></i> (${likesReturned.likes})`
+          : '<i class="far fa-heart"></i> (0)';
+    };
+    getlikes()
+      .then(printLike)
+      .catch((e) => console.log(e));
+
+    
+    btnlike.addEventListener('click', () => {
+      postlikes(food.idMeal);
+      getlikes()
+        .then(printLike)
+        .catch((e) => console.log(e));
+    });
+    
     board.appendChild(item);
 
     // this section is not working----->
-    document.querySelector('.btn-liked').addEventListener('click', () => {
-      postlikes(item.id);
-    });
-    document.querySelector('.btn-recipe').addEventListener('click', () => {
-      getPopupData(food);
-    });
+    // document.querySelector('.btn-liked').addEventListener('click', () => {
+    //   postlikes(item.id);
+    // });
+    // document.querySelector('.btn-recipe').addEventListener('click', () => {
+    //   getPopupData(food);
+    // });
     //  <-------------------------------
 
     //  This way works but for the entire item not just the button

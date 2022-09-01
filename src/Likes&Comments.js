@@ -1,21 +1,31 @@
 // eslint-disable-next-line import/no-cycle
+const projectID = 'oHdQExR6DIJGa8S6fY1E';
+const likesLink = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${projectID}/likes/`;
+
 import { InvolveURL } from './index.js';
 
-const postlikes = async (id) => {
-  const postfix = 'likes';
-  const idUrl = InvolveURL + postfix;
-  await fetch(idUrl, {
-    method: 'POST',
-    body: JSON.stringify({
-      "item_id": id,
-    }),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  });
+export const getlikes = async () => {
+  const response = await fetch(likesLink);
+  const data = await response.json();
+  return data;
 };
 
-const postcomments = async (id, username, comment) => {
+export const postlikes = async (id) => {
+  const request = new Request(likesLink);
+  const response = await fetch(request, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    body: JSON.stringify({ item_id: `${id}` }),
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return response;
+};
+
+export const postcomments = async (id, username, comment) => {
   const postfix = 'comments';
   const idUrl = InvolveURL + postfix;
   await fetch(idUrl, {
@@ -31,5 +41,8 @@ const postcomments = async (id, username, comment) => {
   });
 };
 
-export default postlikes;
-export { postcomments };
+export default { postlikes, getlikes,postcomments};
+
+
+
+
