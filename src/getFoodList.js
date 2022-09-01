@@ -13,7 +13,7 @@ const getPopupData = async (arr) => {
 
 const UIData = (arr) => {
   const board = document.querySelector('.container-food-cards');
-  board.innerHTML = '';
+  board.innerHTML = `Items:(${arr.length})`;
 
   arr.forEach((food) => {
     const item = document.createElement('div');
@@ -39,6 +39,8 @@ const UIData = (arr) => {
     });
   });
 };
+
+
 
 // function to get images and title
 const getData = async (url) => {
