@@ -150,8 +150,19 @@ li:hover {
   background-color: aliceblue;
   margin-inline: 10%;
   position: fixed;
-  top: 0;
-  height: 100vh;     
+  margin-left: 30px;;
+  top: 20px;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 90%;
+  height: 70vh;
+  background-color: rgb(177 142 142);
+  color: rgb(56 26 26);
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;    
 }
 
 .popup img{
