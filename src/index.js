@@ -13,25 +13,34 @@ const [liBeefElement, liPastaElement, liSeafoodElement] =
 let typeFoodSelected = liBeefElement;
 
 liBeefElement.addEventListener('click', () => {
-  
-  getData(allBeefURL);
+    typeFoodSelected = liBeefElement;
+    typeFoodSelected.textContent = 'Beef';
+  liPastaElement.textContent = 'Pasta';
+  liSeafoodElement.textContent = 'Seafood';
+  getData(allBeefURL,typeFoodSelected);
 });
 
 liPastaElement.addEventListener('click', () => {
-  
-  getData(allPastaURL);
+    typeFoodSelected = liPastaElement;
+    typeFoodSelected.textContent = 'Pasta';
+  liBeefElement.textContent = 'Beef';
+  liSeafoodElement.textContent = 'Seafood';
+  getData(allPastaURL,typeFoodSelected);
 });
 
 liSeafoodElement.addEventListener('click', () => {
-  
-  getData(allBeefURL);
+    typeFoodSelected = liSeafoodElement;
+    typeFoodSelected.textContent = 'Seafood';
+  liBeefElement.textContent = 'Beef';
+  liPastaElement.textContent = 'Past';
+  getData(allBeefURL,typeFoodSelected);
 });
 
 
 
 
 
-getData(allBeefURL);
+getData(allBeefURL,typeFoodSelected);
 
 export default allBeefURL;
 export { urlDetails };
