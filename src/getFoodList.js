@@ -27,7 +27,7 @@ const UIData = (arr) => {
           <button type="button">Recipe</button>
         </div>
         <div class="btn-liked">
-          <button type="button">Like</button> 
+          <button type="button"></button> 
           <p class="likes-count"></p>
         </div>
         <div class="card-img">
@@ -42,7 +42,7 @@ const UIData = (arr) => {
       );
       const likesCount = item.querySelector('.likes-count');
       likesCount.innerHTML = likesReturned !== undefined
-        ? `${likesReturned.likes + 1} Likes`
+        ? `${likesReturned.likes + 1}`
         : '0 Likes';
     };
     getlikes()
