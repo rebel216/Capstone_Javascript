@@ -1,5 +1,3 @@
-import { itemCounter } from '../getFoodList.js';
-
 beforeAll(() => {
   document.body.innerHTML = `  
   <div class="container">
@@ -24,6 +22,10 @@ beforeAll(() => {
   </div>
   `;
 });
+
+const itemCounter = (foodSelected, arr) => {
+  foodSelected.innerHTML = `${foodSelected.textContent} (${arr})`;
+};
 
 describe('Check counter all item function', () => {
   test('Should be show Beef (42) ', () => {

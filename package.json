@@ -8,6 +8,9 @@
     "start": "webpack serve --open",
     "build": "webpack"
   },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AlucardSanin/Webpack_Boilerplate.git"
@@ -36,6 +39,7 @@
     "webpack-dev-server": "^4.9.3"
   },
   "dependencies": {
+    "jest-environment-jsdom": "^29.0.1",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"
