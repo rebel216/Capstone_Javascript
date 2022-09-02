@@ -145,28 +145,60 @@ li:hover {
   padding: 0.1rem 0.4rem;
   cursor: pointer;
 }
-
-.popup{
-  background-color: aliceblue;
-  margin-inline: 10%;
-  position: fixed;
+.popupCont{
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(3px);
   top: 0;
-  height: 100vh;     
+  position: fixed;
 }
 
+.popup{ 
+  border-radius: 10%;
+  background-color: rgba(219, 81, 134, 0.9);  
+  width: 70vw;
+  height: 80vh;  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px 50px;  
+  backdrop-filter: blur(10px);
+}
+
+.popup p{
+  color: white;    
+}
+
+.date{
+  text-align: right;
+}
+
+.comment{  
+  border-bottom: 1px solid #333;  
+  width: 90%;
+}
+.popup h4{
+  color: rgb(99, 236, 190);
+}
 .popup img{
-  max-width: 100%;
-  max-height: 100%;
+ max-width: 100%;
+ max-height: 100%;
+ border-radius: 10%;
 }
 
 #cont{
   display: flex; 
-  gap: 30px; 
+  gap: 30px;
+  height: 40%; 
 }
 
 #img{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   width: 50%;
-  align-self: center;
+  height: 100%;  
 }
 
 #ins{
@@ -175,10 +207,19 @@ li:hover {
 }
 
 .content{
-  height: 400px;
+  height: 200px;
   overflow: auto;
+  scrollbar-color: #6969dd #e0e0e0;
+  scrollbar-width: thin;
 }
 
 form{
   text-align: center;
+}
+
+.commentSection{
+  height: 40%;
+  overflow-y: auto;  
+  scrollbar-color: #6969dd #e0e0e0;
+  scrollbar-width: thin;
 }

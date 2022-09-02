@@ -1,8 +1,9 @@
+/* eslint-disable import/no-cycle */
 import { InvolveURL } from './index.js';
 import { postcomments } from './Likes&Comments.js';
 
 const fillComments = (obj) => {
-  const commentsCounter = document.createElement('h6');
+  const commentsCounter = document.createElement('h5');
   if (obj.length !== undefined) {
     const postfix = ' Comments';
     commentsCounter.textContent = obj.length + postfix;
@@ -14,10 +15,10 @@ const fillComments = (obj) => {
     comment.classList = 'comment';
     comment.innerHTML = `
     <h4>${obj[i].username}</h4>
-    <p>${obj[i].comment}</br></br>${obj[i].creation_date}</p>
+    <p>${obj[i].comment}</br></br><p class="date">${obj[i].creation_date}</p></p>
     `;
-    const popup = document.querySelector('.popup');
-    popup.appendChild(comment);
+    const commentSection = document.querySelector('.commentSection');
+    commentSection.appendChild(comment);
   }
 };
 
@@ -31,6 +32,8 @@ async function getComments(id) {
 
 const popupData = (arr) => {
   const popup = document.createElement('div');
+  const popupCont = document.createElement('div');
+  popupCont.classList = 'popupCont';
   popup.classList = 'popup';
   popup.innerHTML = `
   <div id="cont">
@@ -43,8 +46,8 @@ const popupData = (arr) => {
   </div>
   </div>
   <form><h4>Leave a comment</h4>
-  <input type="text" id="user" placeholder="Your name">
-  <input type="text" id="comment" placeholder="Your insights">
+  <input type="text" id="user" placeholder="Your name" required>
+  <input type="text" id="comment" placeholder="Your insights" required>
   <button type="button" id="submit">Comment</button>
   <button type="button" id="close">Go Back</button>
   </form>
@@ -52,18 +55,24 @@ const popupData = (arr) => {
   </div>  
 `;
   const body = document.querySelector('body');
-  body.appendChild(popup);
+  popupCont.appendChild(popup);
+  body.appendChild(popupCont);
   const submit = document.getElementById('submit');
-  submit.addEventListener('click', () => {
-    const form = document.querySelector('form');
-    form.reset();
+  submit.addEventListener('click', (e) => {
     const user = document.getElementById('user').value;
     const comment = document.getElementById('comment').value;
-    postcomments(arr[0].idMeal, user, comment);
+    if ((user.length < 1) || (comment.length < 1)) {
+      console.log(user.length, comment.length);
+      e.preventDefault();
+    } else {
+      postcomments(arr[0].idMeal, user, comment);
+      const form = document.querySelector('form');
+      form.reset();
+    }
   });
   const close = document.querySelector('#close');
   close.addEventListener('click', () => {
-    body.removeChild(popup);
+    body.removeChild(popupCont);
   });
   getComments(arr[0].idMeal);
 };
