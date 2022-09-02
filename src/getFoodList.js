@@ -11,10 +11,14 @@ const getPopupData = async (arr) => {
   popupData(responsInfo); // passing that response to display the data.
 };
 
+export const itemCounter = (foodSelected, arr) => {
+  foodSelected.innerHTML = `${foodSelected.textContent} (${arr.length})`;
+};
+
 const UIData = (arr,foodSelected) => {
   const board = document.querySelector('.container-food-cards');
   board.innerHTML = ``;
-  foodSelected.innerHTML=`${foodSelected.textContent} (${arr.length})`
+  itemCounter(foodSelected,arr)
   // item count
 
   arr.forEach((food) => {

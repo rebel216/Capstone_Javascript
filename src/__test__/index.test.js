@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+import { itemCounter } from '../getFoodList.js';
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Food App</title>
-    <script defer src="main.js"></script></head>
-
-    <body>
-        <div class="container">
+beforeAll(() => {
+  document.body.innerHTML = `  
+  <div class="container">
             <header>
                 <div class="logo">
                     <h1>Logo Page</h1>
@@ -24,10 +17,18 @@
             </header>
             <main class="container-food-cards">
             </main>
-            <footer>
+            <<footer>
             <h4>&copy; Created by Microverse under CC license</h4>
         </footer>
         </div>
-    </body>
+  </div>
+  `;
+});
 
-</html>
+describe('Check counter all item function', () => {
+  test('Should be show Beef (42) ', () => {
+    const beefCount = document.querySelector('li');
+    itemCounter(beefCount, 42);
+    expect(beefCount.textContent).toEqual('Beef (42)');
+  });
+});
