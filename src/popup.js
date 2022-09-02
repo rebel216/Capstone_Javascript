@@ -45,9 +45,9 @@ const popupData = (arr) => {
   <p class="content">${arr[0].strInstructions}</p>
   </div>
   </div>
-  <form><h4>Leave a comment</h4>
-  <input type="text" id="user" placeholder="Your name" required>
-  <input type="text" id="comment" placeholder="Your insights" required>
+  <form><h4>Leave a comment</h4>  
+  <input type="text" value"submit" id="user" placeholder="Your name" required/>
+  <input type="text" value"submit" id="comment" placeholder="Your insights" required/>
   <button type="button" id="submit">Comment</button>
   <button type="button" id="close">Go Back</button>
   </form>
@@ -62,8 +62,11 @@ const popupData = (arr) => {
     const user = document.getElementById('user').value;
     const comment = document.getElementById('comment').value;
     if ((user.length < 1) || (comment.length < 1)) {
-      console.log(user.length, comment.length);
       e.preventDefault();
+      const alert = document.createElement('p');
+      alert.textContent = 'Please fill both fields.';
+      const form = document.querySelector('form');
+      form.appendChild(alert);
     } else {
       postcomments(arr[0].idMeal, user, comment);
       const form = document.querySelector('form');
