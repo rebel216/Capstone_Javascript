@@ -12,9 +12,15 @@ const getPopupData = async (arr) => {
   popupData(responsInfo); // passing that response to display the data.
 };
 
-const UIData = (arr) => {
+export const itemCounter = (foodSelected, arr) => {
+  foodSelected.innerHTML = `${foodSelected.textContent} (${arr.length})`;
+};
+
+const UIData = (arr,foodSelected) => {
   const board = document.querySelector('.container-food-cards');
-  board.innerHTML = '';
+  board.innerHTML = ``;
+  itemCounter(foodSelected,arr)
+  // item count
 
   arr.forEach((food) => {
     const item = document.createElement('div');
@@ -61,13 +67,15 @@ const UIData = (arr) => {
   });
 };
 
+
+
 // function to get images and title
-const getData = async (url) => {
+const getData = async (url,foodSelected) => {
   const request = new Request(url);
   const response = await fetch(request);
   const responseJson = await response.json();
   const responsInfo = responseJson.meals;// getting food data list
-  UIData(responsInfo); // passing that response to display the data.
+  UIData(responsInfo,foodSelected); // passing that response to display the data.
 };
 
 export { getData as default };
