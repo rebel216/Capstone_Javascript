@@ -137,36 +137,82 @@ li:hover {
   padding: 0.2rem;
 }
 
-.btn-liked button {
-  background: white;
-  border: 1px solid #dbdbdb;
+.likes-count{
+  margin: 0px;
+}
+
+.btn-liked button { 
+  background-image: url(./Images/heart.png);
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: 50%;
+  background-position: 50% 50%;  
   color: rgb(221, 21, 21);
   font-weight: bold;
-  padding: 0.1rem 0.4rem;
-  cursor: pointer;
-}
+  padding: 15px;    
+  border: none;
+  }
 
-.popup{
-  background-color: aliceblue;
-  margin-inline: 10%;
-  position: fixed;
+  .btn-liked button:hover{
+    background-size: 90%;    
+    cursor: pointer;
+  }
+
+.popupCont{
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(3px);
   top: 0;
-  height: 100vh;     
+  position: fixed;
 }
 
+.popup{ 
+  border-radius: 15% 0% 15% 0%;
+  background-color: rgba(218, 87, 172, 0.85);  
+  width: 50vw;
+  height: 80vh;  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px 50px;  
+  backdrop-filter: blur(10px);
+  box-shadow: 3px 3px rgb(139, 131, 135);
+}
+
+.popup p{
+  color: white;    
+}
+
+.date{
+  text-align: right;
+}
+
+.comment{  
+  border-bottom: 1px solid #333;  
+  width: 90%;
+}
+.popup h4{
+  color: rgb(99, 236, 190);
+}
 .popup img{
-  max-width: 100%;
-  max-height: 100%;
+ max-width: 100%;
+ max-height: 100%;
+ border-radius: 15% 0% 15% 0%;
 }
 
 #cont{
   display: flex; 
-  gap: 30px; 
+  gap: 30px;
+  height: 40%; 
 }
 
 #img{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   width: 50%;
-  align-self: center;
+  height: 100%;  
 }
 
 #ins{
@@ -175,10 +221,45 @@ li:hover {
 }
 
 .content{
-  height: 400px;
-  overflow: auto;
+  height: 200px;
+  overflow-y: auto;
 }
 
 form{
-  text-align: center;
+  text-align: center;  
 }
+
+input{
+  border: rgb(94, 109, 104) 2px solid;
+  padding: 5px;  
+}
+
+.commentSection{
+  height: 40%;
+  overflow-y: auto;
+}
+
+.popup button{
+  padding: 5px;
+  background-color: rgb(166, 161, 163) ;
+  border-top: 0px;
+  border-left: 0px;
+}
+
+.popup button:hover{
+  background-color: #333;
+  color: #fafafa;
+  cursor: pointer;
+}
+
+.popup ::-webkit-scrollbar{
+  width: 10px; 
+}
+.popup ::-webkit-scrollbar-track{
+  background: #f1f1f1;
+}
+.popup ::-webkit-scrollbar-thumb{
+  background: #888;
+}
+
+
