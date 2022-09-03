@@ -7,8 +7,9 @@ const fillComments = (obj) => {
   if (obj.length !== undefined) {
     const postfix = ' Comments';
     commentsCounter.textContent = obj.length + postfix;
-    const popup = document.querySelector('.popup');
-    popup.appendChild(commentsCounter);
+    // const popup = document.querySelector('.popup');
+    const commentSection = document.querySelector('.commentSection');
+    commentSection.appendChild(commentsCounter);
   }
   for (let i = 0; i < obj.length; i += 1) {
     const comment = document.createElement('div');
@@ -46,14 +47,13 @@ const popupData = (arr) => {
   <p class="content">${arr[0].strInstructions}</p>
   </div>
   </div>
+  <div class="commentSection">
+  </div>
   <form><h4>Leave a comment</h4>  
   <input type="text" value"submit" id="user" placeholder="Your name" required/>
   <input type="text" value"submit" id="comment" placeholder="Your insights" required/>
   <button type="button" id="submit">Comment</button>
-  <button type="button" id="close">Go Back</button>
   </form>
-  <div class="commentSection">
-  </div>  
 `;
   const body = document.querySelector('body');
   popupCont.appendChild(popup);
