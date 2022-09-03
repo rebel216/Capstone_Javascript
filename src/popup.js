@@ -59,7 +59,7 @@ const popupData = (arr) => {
   popupCont.appendChild(popup);
   body.appendChild(popupCont);
   const submit = document.getElementById('submit');
-  submit.addEventListener('click', (e) => {
+  submit.addEventListener('click', async (e) => {
     const user = document.getElementById('user').value;
     const comment = document.getElementById('comment').value;
     if ((user.length < 1) || (comment.length < 1)) {
@@ -69,7 +69,10 @@ const popupData = (arr) => {
       const form = document.querySelector('form');
       form.appendChild(alert);
     } else {
-      postcomments(arr[0].idMeal, user, comment);
+      await postcomments(arr[0].idMeal, user, comment);
+      getComments(arr[0].idMeal);
+      const commentSection = document.querySelector('.commentSection');
+      commentSection.innerHTML = ``;
       const form = document.querySelector('form');
       form.reset();
     }

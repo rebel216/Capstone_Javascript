@@ -38,7 +38,7 @@ export const postcomments = async (id, username, comment) => {
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
-  });
+  });  
 };
 
 export default { postlikes, getlikes, postcomments };

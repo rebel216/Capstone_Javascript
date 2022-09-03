@@ -54,8 +54,8 @@ const UIData = (arr, foodSelected) => {
     getlikes()
       .then(printLike);
 
-    btnlike.addEventListener('click', () => {
-      postlikes(food.idMeal);
+    btnlike.addEventListener('click', async () => {
+      await postlikes(food.idMeal);
       getlikes()
         .then(printLike);
     });
