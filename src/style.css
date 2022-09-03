@@ -274,6 +274,7 @@ input {
 .popup ::-webkit-scrollbar-thumb {
   background: #888;
 }
+
 .Closebtn {
   position: absolute;
   right: -36px;
@@ -282,6 +283,7 @@ input {
   height: 32px;
   opacity: 2;
 }
+
 .Closebtn:hover {
   opacity: 5;
 }
