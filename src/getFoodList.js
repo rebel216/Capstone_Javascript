@@ -49,7 +49,7 @@ const UIData = (arr,foodSelected) => {
       const likesCount = item.querySelector('.likes-count');
       likesCount.innerHTML = likesReturned !== undefined
         ? `${likesReturned.likes + 1}`
-        : '0 Likes';
+        : '0';
     };
     getlikes()
       .then(printLike);
@@ -66,8 +66,6 @@ const UIData = (arr,foodSelected) => {
     });
   });
 };
-
-
 
 // function to get images and title
 const getData = async (url,foodSelected) => {
