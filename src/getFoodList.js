@@ -16,10 +16,10 @@ export const itemCounter = (foodSelected, arr) => {
   foodSelected.innerHTML = `${foodSelected.textContent} (${arr.length})`;
 };
 
-const UIData = (arr,foodSelected) => {
+const UIData = (arr, foodSelected) => {
   const board = document.querySelector('.container-food-cards');
-  board.innerHTML = ``;
-  itemCounter(foodSelected,arr)
+  board.innerHTML = '';
+  itemCounter(foodSelected, arr);
   // item count
 
   arr.forEach((food) => {
@@ -68,12 +68,12 @@ const UIData = (arr,foodSelected) => {
 };
 
 // function to get images and title
-const getData = async (url,foodSelected) => {
+const getData = async (url, foodSelected) => {
   const request = new Request(url);
   const response = await fetch(request);
   const responseJson = await response.json();
   const responsInfo = responseJson.meals;// getting food data list
-  UIData(responsInfo,foodSelected); // passing that response to display the data.
+  UIData(responsInfo, foodSelected); // passing that response to display the data.
 };
 
 export { getData as default };

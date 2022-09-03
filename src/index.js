@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import './style.css';
 import getData from './getFoodList.js';
 
