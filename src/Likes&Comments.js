@@ -1,5 +1,3 @@
-/* eslint-disable quote-props */
-/* eslint-disable quotes */
 // eslint-disable-next-line import/no-cycle
 import { InvolveURL } from './index.js';
 
