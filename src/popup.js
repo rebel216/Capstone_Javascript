@@ -36,6 +36,7 @@ const popupData = (arr) => {
   popupCont.classList = 'popupCont';
   popup.classList = 'popup';
   popup.innerHTML = `
+  <button type="button" class="Closebtn" id="close">X</button>
   <div id="cont">
   <div id="img">
   <img src="${arr[0].strMealThumb}" id="food">
