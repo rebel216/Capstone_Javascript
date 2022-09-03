@@ -5,6 +5,12 @@
 
 Game Web App using Leaderboard API.
 
+
+# Capstone Project JavaScript
+
+> Capstone JavaScript using HTML, CSS, Jest, JavaScripts, GitFlow and Webpack
+
+![screenshot](./Home.png)
 ## Built With
 
 - HTML
@@ -13,17 +19,16 @@ Game Web App using Leaderboard API.
 
 ## Feature used
 
--Leaderboard open API
-https://www.notion.so/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3
-
+- open API
+https:///www.themealdb.com/api
 ### Prerequisites
  - Web browser and code editor of your choice
  
 ### Setup
-~~~
-git clone 
-cd portfolio
-~~~
+
+Open a terminal or a git bash in the desired directory and run `https://github.com/rebel216/capstone_javascript.git`
+
+To get a local copy up and running follow these simple example steps.
 
 
 ## Authors
@@ -33,6 +38,14 @@ cd portfolio
 - GitHub: https://github.com/AlucardSanin
 - Twitter: https://twitter.com/cadivisea
 - LinkedIn: https://www.linkedin.com/in/david-isea-560424236/
+
+
+👤 **Neeraj Bhardwaj**
+
+- GitHub: [@rebel216](https://github.com/rebel216)
+- Twitter: [@rebel216](https://twitter.com/rebel216)
+- LinkedIn: [rebel216](https://linkedin.com/in/rebel216)
+
 
 ## Show your support
 
