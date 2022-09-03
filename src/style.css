@@ -274,10 +274,15 @@ input {
 .popup ::-webkit-scrollbar-thumb {
   background: #888;
 }
-
-.Closebtn{
-  margin-left: 900px;
-  margin-top: -40px;;
-  text-size-adjust: 200px;
-  background-color: #dbdbdb22;
+.Closebtn {
+  position: absolute;
+  right: -36px;
+  top: -12px;
+  width: 32px;
+  height: 32px;
+  opacity: 2;
 }
+.Closebtn:hover {
+  opacity: 5;
+}
+
