@@ -17,6 +17,11 @@ Game Web App using Leaderboard API.
 - CSS
 - Javascript
 
+
+## Live Demo 
+
+[Live Demo Link](https://rebel216.github.io/Capstone_Javascript/dist/)
+
 ## Feature used
 
 - open API
